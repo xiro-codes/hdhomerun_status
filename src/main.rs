@@ -31,6 +31,11 @@ async fn main() -> Result<(), reqwest::Error>{
         }
         map.insert(key.unwrap().to_lowercase(), value.unwrap()) ;
     }
-    println!("{map:?}");
+    let signal = map.get("signal strength").unwrap();
+    let qualty = map.get("signal quality").unwrap();
+    let mut output_map = HashMap::new() ;
+    output_map.insert("text", format!(": {}", signal));
+    output_map.insert("alt", format!("Quality: {}", qualty));
+    println!("{output_map:?}");
     Ok(())
 }
