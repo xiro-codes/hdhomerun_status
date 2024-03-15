@@ -1,4 +1,6 @@
 use scraper::{Html, Selector, };
+use std::io::Write;
+use std::io::stdout;
 use std::collections::HashMap;
 use clap::Parser;
 #[derive(Parser, Debug)]
@@ -37,5 +39,6 @@ async fn main() -> Result<(), reqwest::Error>{
     output_map.insert("text", format!("Signal: {}", signal));
     output_map.insert("alt", format!("Quality: {}", qualty));
     println!("{output_map:?}");
+    stdout().flush();
     Ok(())
 }
