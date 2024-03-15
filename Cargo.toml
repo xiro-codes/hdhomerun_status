@@ -1,5 +1,5 @@
 [package]
-name = "tunner_status"
+name = "hdhomerun_status"
 version = "0.1.0"
 edition = "2021"
 
